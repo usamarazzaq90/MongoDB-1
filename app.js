@@ -1,44 +1,21 @@
 const express=require('express')
 const app=express()
+const path=require('path')
 
-const userModel=require('./usermodel')
+app.set("view engine","ejs")
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+app.use(express.static(path.join(__dirname,'public')))
 
-app.get('/',(req,res)=>{   
-    res.send("Mongo DB!")
+app.get('/',(req,res)=>{
+    res.render("index")
 })
 
-//Create
-app.get('/create',async (req,res)=>{
-    //any code related to mongoose (CRUD) will always be asynchronus
-    let createdUser=await userModel.create({
-        name:"Usman",
-        username:"usmanarshad",
-        email:"usman@gmail.com",
-    })
-    res.send(createdUser);
+app.get('/read',(req,res)=>{
+    res.render("read")
 })
 
-//Read
-app.get('/read',async (req,res)=>{
-    //any code related to mongoose (CRUD) will always be asynchronus
-    let users= await userModel.find(); //It will give all users
-    // let users= await userModel.find({username:"usmanarshad"}); //find gives array (gives null array if user doesn't exist)
-    // let users= await userModel.findOne({username:"usmanarshad"}); //findOne gives object (gives nothing if user doesn't exist)
-    res.send(users);
+app.post('/cretae',(req,res)=>{
 })
 
-//Update
-app.get('/update',async (req,res)=>{
-    //any code related to mongoose (CRUD) will always be asynchronus
-    let updatedUser= await userModel.findOneAndUpdate({username:"usamarazzaq"}, {name:"Usama Razzaq"}, {new:true})
-    res.send(updatedUser);
-})
-
-//Delete
-app.get('/delete',async (req,res)=>{
-    //any code related to mongoose (CRUD) will always be asynchronus
-    let deletedUser= await userModel.findOneAndDelete({username:"usamarazzaq"})
-    res.send(deletedUser);
-})
-
-app.listen(3000)
+app.listen(3000);

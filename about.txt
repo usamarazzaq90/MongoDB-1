@@ -1,3 +1,5 @@
+----> Part 11 (Basic CRUD Operations)
+
 1- npm init -y
 2- install express
 3- install mongoose
@@ -7,4 +9,8 @@
         create schema
         ceate model
         export model and use it in the app.js
-5- Perform CRUD operations
+5- Perform CRUD operations (CRUD.js)
+
+        <<----------------------------------------------------------------------------->>
+
+----> Part 12 (CRUD with EJS & Server-Side Rendering)
