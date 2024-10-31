@@ -14,3 +14,5 @@
         <<----------------------------------------------------------------------------->>
 
 ----> Part 12 (CRUD with EJS & Server-Side Rendering)
+
+Create a simple application
