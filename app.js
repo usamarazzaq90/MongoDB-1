@@ -53,5 +53,3 @@ app.get('/delete/:id',async (req,res)=>{
 })
 
 app.listen(3000);
-
-//Daily Commit
