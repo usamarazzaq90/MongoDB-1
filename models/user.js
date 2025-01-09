@@ -8,3 +8,5 @@ const userSchema=mongoose.Schema({
     image: String,
 })
 module.exports=mongoose.model('user',userSchema)
+
+//Daily Commit
